@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+</head>
+<body>
+    <h1>Produtos</h1>
+
+    <form method="POST">
+        <input
+            type="text"
+            name="nome"
+            placeholder="Nome do produto"
+            required
+        >
+
+        <input
+            type="number"
+            name="preco"
+            placeholder="Preço do produto"
+            step="0.01"
+            required
+        >
+        <button type="submit">
+            Adicionar Produto
+        </button>
+
+        
+    </form>
+    
+    <hr>
+    
+    <ul>
+        <!-- Loop para exibir os produtos -->
+        {% for produto in produtos %}
+            <li>
+                {{ produto.nome }} - R$ {{ produto.preco }}
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
