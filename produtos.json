@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "nome": "teste",
+        "preco": 55.0
+    },
+    {
+        "id": 2,
+        "nome": "mause",
+        "preco": 500.0
+    },
+    {
+        "id": 3,
+        "nome": "notebook",
+        "preco": 7.5
+    }
+]

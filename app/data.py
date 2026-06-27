@@ -3,6 +3,10 @@ Módulo responsável por fornecer os dados dos produtos.
 '''
 
 import json
+from pathlib import Path
+
+base_dir = Path(__file__).resolve().parent.parent # Caminho para o diretório do projeto
+ARQUIVO_JSON = base_dir / 'produtos.json'  # Caminho para o arquivo JSON
 
 def get_produtos():
     """
@@ -10,7 +14,7 @@ def get_produtos():
     """
     try:
         with open(
-            'produtos.json',
+            ARQUIVO_JSON,
             'r',
             encoding='utf-8',
             ) as file:
@@ -26,7 +30,7 @@ def salvar_produtos(produtos):
     Salva a lista de produtos no arquivo JSON.
     """
     with open(
-        'produtos.json',
+        ARQUIVO_JSON,
          'w',
          encoding='utf-8'
          ) as file:
