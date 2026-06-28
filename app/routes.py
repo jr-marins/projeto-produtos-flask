@@ -8,7 +8,7 @@ a aplicação é executada.
 '''
 
 from flask import Blueprint, render_template, request, redirect
-from .services import listar_produtos, adicionar_produto
+from .services import listar_produtos, adicionar_produto, buscar_produto_por_id
 
 bp = Blueprint("produtos", __name__)
 ''' 
@@ -48,9 +48,14 @@ que a lista de produtos seja acessada dentro do template.
 '''
 
 # rota para editar produtos
-@bp.route("/produtos/editar/<int:id>", methods=["GET", "POST"])
-def editar_produto(id):
+@bp.route("/produtos/<int:produto_id>/editar", methods=["GET", "POST"])
+def editar_produto_route(produto_id):
     """
     rota para editar um produto existente.
     """
-    
+    produto = buscar_produto_por_id(listar_produtos(), produto_id)]
+
+    return render_template(
+        "editarP.html",
+        produto=produto
+    )
