@@ -46,3 +46,11 @@ produtos=produtos é um argumento passado para o template, permitindo
 que a lista de produtos seja acessada dentro do template.
 
 '''
+
+# rota para editar produtos
+@bp.route("/produtos/editar/<int:id>", methods=["GET", "POST"])
+def editar_produto(id):
+    """
+    rota para editar um produto existente.
+    """
+    

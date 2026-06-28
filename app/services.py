@@ -32,7 +32,6 @@ def validar_produto(nome, preco):
 
     return True
 
-
 # com os dados validados, podemos adicionar o produto
 def adicionar_produto(nome, preco):
     '''
@@ -62,13 +61,28 @@ def adicionar_produto(nome, preco):
     produtos.append(novo_produto)
     salvar_produtos(produtos)
 
-"""
-função para buscar um produto pelo ID.
-"""
 
-def buscar_produto_por_id(produto_id):
-    produtos = get_produtos()
+def buscar_produto_por_id(produtos, produto_id):
+    """
+    função para buscar um produto pelo ID.
+    """
     for produto in produtos:
         if produto["id"] == produto_id:
             return produto
     return None
+
+# função para atualizar um produto existente.
+def editar_produto(produtos, produto_id, nome, preco):
+
+    produto = buscar_produto_por_id(produtos, produto_id)
+    
+    if produto is None:
+        raise ValueError("Produto não encontrado.")
+    
+    if not validar_produto(nome, preco):
+        raise ValueError("Dados do produto inválidos.")
+    
+    produto["nome"] = nome
+    produto["preco"] = preco
+
+    salvar_produtos(produtos)
