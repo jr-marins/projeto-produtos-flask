@@ -13,5 +13,10 @@
         "id": 3,
         "nome": "notebook",
         "preco": 7.5
+    },
+    {
+        "id": 4,
+        "nome": "monitor",
+        "preco": 5000.0
     }
 ]

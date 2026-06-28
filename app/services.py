@@ -61,3 +61,14 @@ def adicionar_produto(nome, preco):
     # agora salvasmos o novo produto no arquivo JSON
     produtos.append(novo_produto)
     salvar_produtos(produtos)
+
+"""
+função para buscar um produto pelo ID.
+"""
+
+def buscar_produto_por_id(produto_id):
+    produtos = get_produtos()
+    for produto in produtos:
+        if produto["id"] == produto_id:
+            return produto
+    return None
